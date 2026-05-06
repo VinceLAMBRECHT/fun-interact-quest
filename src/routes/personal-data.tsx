@@ -6,6 +6,8 @@ import { TabsPanel, RevealGrid, Accordion } from "@/components/Interactive";
 import { ActivityLauncher } from "@/components/ActivityLauncher";
 import { TopicHero } from "@/components/TopicHero";
 import heroImg from "@/assets/hero-personal-data.jpg";
+import fingerprintImg from "@/assets/data-fingerprint.jpg";
+import footprintImg from "@/assets/data-footprint.jpg";
 
 export const Route = createFileRoute("/personal-data")({
   component: Page,

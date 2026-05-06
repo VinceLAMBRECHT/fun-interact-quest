@@ -81,11 +81,12 @@ function Page() {
           eyebrow="Section 3"
           title="Legislation"
           description="DPA 2018, the Computer Misuse Act 1990 and the rules on cookies."
-          accentClass="from-violet-700/60 to-amber-500/30"
+          accentClass="from-emerald-700/60 to-lime-500/30"
         />
 
         <section>
           <h2 className="font-display text-2xl font-bold mb-3">Data Protection Act 2018</h2>
+          <img src={gavelImg} alt="Gavel resting on a laptop with green legal documents" loading="lazy" width={1200} height={800} className="rounded-2xl shadow-card object-cover w-full h-56 mb-4" />
           <TabsPanel tabs={[
             { label: "7 Principles", content: <RevealGrid items={principles} /> },
             { label: "Your Rights", content: <RevealGrid items={rights} /> },

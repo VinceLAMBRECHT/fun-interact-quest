@@ -100,6 +100,7 @@ function Page() {
 
         <section>
           <h2 className="font-display text-2xl font-bold mb-3">Cookies & PECR</h2>
+          <img src={cookiesImg} alt="Cookies on a laptop with green padlocks" loading="lazy" width={1200} height={800} className="rounded-2xl shadow-card object-cover w-full h-56 mb-4" />
           <RevealGrid items={cookieFacts} />
         </section>
 

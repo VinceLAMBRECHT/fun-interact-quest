@@ -22,7 +22,7 @@ const topics = [
     tag: "Section 1",
     title: "Environmental Issues",
     desc: "Manufacture, energy use, disposal & responsible recycling of digital devices.",
-    color: "from-sky-400/20 to-blue-500/10",
+    color: "from-emerald-500/30 to-lime-400/10",
     img: envImg,
   },
   {
@@ -30,7 +30,7 @@ const topics = [
     tag: "Section 2",
     title: "Personal Data",
     desc: "Digital footprint, ownership of data, benefits & drawbacks.",
-    color: "from-blue-400/20 to-indigo-500/10",
+    color: "from-teal-500/30 to-emerald-400/10",
     img: dataImg,
   },
   {
@@ -38,7 +38,7 @@ const topics = [
     tag: "Section 3",
     title: "Legislation",
     desc: "DPA 2018, Computer Misuse Act, Cookies & EU Regulations.",
-    color: "from-cyan-400/20 to-sky-500/10",
+    color: "from-green-600/30 to-emerald-400/10",
     img: lawImg,
   },
   {
@@ -46,7 +46,7 @@ const topics = [
     tag: "Test Your Learning",
     title: "Interactive Challenges",
     desc: "Match-up, drag-to-sort, true/false rapid-fire and more.",
-    color: "from-indigo-400/20 to-blue-500/10",
+    color: "from-lime-500/30 to-emerald-500/10",
     img: gamesImg,
   },
 ] as const;

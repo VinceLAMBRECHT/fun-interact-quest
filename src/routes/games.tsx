@@ -344,33 +344,52 @@ function GuessGame() {
 
 /* ---------------- QUIZ GAME ---------------- */
 const quizQuestions = [
+  // Environmental
   { q: "Roughly how much e-waste is produced globally each year?", options: ["5M tonnes", "20M tonnes", "50M tonnes", "200M tonnes"], answer: 2, explain: "About 50 million tonnes — only ~20% recycled." },
-  { q: "How many DPA 2018 principles are there?", options: ["5", "6", "7", "10"], answer: 2, explain: "Seven principles, from lawfulness to accountability." },
-  { q: "Which is NOT covered by the Computer Misuse Act?", options: ["Hacking an account", "Planting a virus", "Saving cookies", "Access with intent to defraud"], answer: 2, explain: "Cookies fall under PECR, not the CMA." },
-  { q: "In the UK, who owns medical records?", options: ["The patient", "The doctor", "The NHS", "Insurance"], answer: 2, explain: "The NHS owns them — patients only have a right to view." },
-  { q: "Which regulation requires consent before using cookies?", options: ["DPA 2018", "CMA", "PECR", "WEEE"], answer: 2, explain: "PECR governs cookies and electronic communications." },
   { q: "What share of a device's footprint comes from manufacture & disposal?", options: ["10%", "30%", "50%", "70%"], answer: 3, explain: "Make + bin ≈ 70%; use ≈ 30%." },
-  { q: "Which is NOT personal data?", options: ["Passport number", "Fingerprints", "Public weather forecast", "Medical record"], answer: 2, explain: "Generic public info isn't personal data." },
-  { q: "What is a digital footprint?", options: ["A device hardware ID", "Trail of personal data left online", "A type of cookie", "Your typing speed"], answer: 1 },
-  { q: "Which DPA principle says collect only what is necessary?", options: ["Purpose limitation", "Storage limitation", "Data minimisation", "Accountability"], answer: 2 },
-  { q: "Which DPA principle says data must be kept up to date?", options: ["Accuracy", "Lawfulness", "Storage limitation", "Security"], answer: 0 },
-  { q: "Which is NOT a benefit of responsible recycling?", options: ["Recovers valuable metals", "Reduces chemical leakage", "Increases mining demand", "Reduces toxins in air"], answer: 2 },
-  { q: "Best way to cut your device's energy use?", options: ["Leave Bluetooth on", "Sleep mode + lower brightness", "Run apps in background", "Higher refresh rate"], answer: 1 },
-  { q: "Why locate data centres in cool places?", options: ["Cheaper land", "Reduce cooling costs", "Better internet", "Less rain"], answer: 1 },
-  { q: "Main driver of the short replacement cycle?", options: ["Devices break easily", "Latest-model desire", "Government rules", "Bad batteries"], answer: 1 },
-  { q: "Which regulation sets targets for e-waste collection & recycling?", options: ["DPA", "WEEE", "PECR", "CMA"], answer: 1 },
-  { q: "What is a cookie?", options: ["A small file stored when you visit a site", "Malware", "A browser tab", "An app icon"], answer: 0 },
-  { q: "Under DPA 2018, which is a data subject's right?", options: ["Withdraw consent at any time", "Sell data back", "Hide data from courts", "Refuse to be billed"], answer: 0 },
-  { q: "Why are shared datasets a civil-liberties concern?", options: ["Use too much storage", "Wrongly link innocents to crime", "Slow internet", "Raise tax"], answer: 1 },
+  { q: "Which is NOT a benefit of responsible recycling?", options: ["Recovers metals", "Reduces leakage", "Increases mining", "Reduces toxins"], answer: 2 },
+  { q: "Best way to cut your device's energy use?", options: ["Leave Bluetooth on", "Sleep + lower brightness", "Run apps in background", "Higher refresh rate"], answer: 1 },
   { q: "Smart lighting is an example of tech that…", options: ["Increases energy use", "Reduces energy use", "Has no impact", "Causes e-waste"], answer: 1 },
-  { q: "The CMA 1990 covers all of these EXCEPT…", options: ["Unauthorised access", "Access with intent", "Acts that cause damage", "Sharing your password"], answer: 3 },
-  { q: "Who can a data subject complain to in the UK?", options: ["Police", "Information Commissioner", "Their MP", "The Home Office"], answer: 1 },
-  { q: "How much e-waste is recycled globally?", options: ["~5%", "~20%", "~50%", "~80%"], answer: 1 },
+  // Personal data
+  { q: "What is a digital footprint?", options: ["A device hardware ID", "Trail of personal data left online", "A type of cookie", "Your typing speed"], answer: 1 },
+  { q: "In the UK, who owns medical records?", options: ["The patient", "The doctor", "The NHS", "Insurance"], answer: 2, explain: "The NHS owns them — patients only have a right to view." },
   { q: "Which is sensitive personal data?", options: ["Shoe size", "Political opinions", "Favourite colour", "Browser version"], answer: 1 },
-  { q: "Which cuts a device's footprint the most?", options: ["Buy newer faster", "Keep it longer", "Brighter screen", "More apps"], answer: 1 },
-  { q: "Mining for device materials mainly causes…", options: ["More wildlife", "Habitat damage", "Cooler climate", "Cleaner rivers"], answer: 1 },
-  { q: "Which is NOT a DPA 2018 principle?", options: ["Accuracy", "Security", "Profitability", "Accountability"], answer: 2 },
-  { q: "PECR stands for…", options: ["Personal Email Consent Rules", "Privacy & Electronic Communications Regulations", "Public European Cookie Rule", "Protected Electronic Computer Records"], answer: 1 },
+  // Legislation
+  { q: "How many DPA 2018 principles are there?", options: ["5", "6", "7", "10"], answer: 2 },
+  { q: "Which DPA principle says collect only what is necessary?", options: ["Purpose limitation", "Storage limitation", "Data minimisation", "Accountability"], answer: 2 },
+  { q: "Which is NOT covered by the Computer Misuse Act?", options: ["Hacking an account", "Planting a virus", "Saving cookies", "Access with intent to defraud"], answer: 2, explain: "Cookies fall under PECR." },
+  { q: "Which regulation requires consent before using cookies?", options: ["DPA 2018", "CMA", "PECR", "WEEE"], answer: 2 },
+  { q: "Who can a data subject complain to in the UK?", options: ["Police", "Information Commissioner", "Their MP", "The Home Office"], answer: 1 },
+  // AI
+  { q: "Machine learning is best described as…", options: ["Hard-coded rules", "Learning patterns from data", "A type of robot", "A spreadsheet"], answer: 1 },
+  { q: "Narrow AI can…", options: ["Do anything a human can", "Only do tasks it was designed for", "Reprogram itself for new fields", "Feel emotions"], answer: 1 },
+  { q: "Algorithmic bias is most often caused by…", options: ["Slow internet", "Biased training data", "Old hardware", "Cookies"], answer: 1 },
+  { q: "Why is AI accountability difficult?", options: ["AI is open-source", "Black-box decisions are hard to explain", "Cookies block logs", "Robots refuse to help"], answer: 1 },
+  // IP
+  { q: "Copyright protection is…", options: ["Applied for", "Automatic on creation", "Bought yearly", "Granted by EU"], answer: 1 },
+  { q: "How long does copyright last after the creator's death?", options: ["10 years", "20 years", "50 years", "70 years"], answer: 3 },
+  { q: "Patents protect…", options: ["Logos", "Inventions", "Music", "Brand colours"], answer: 1 },
+  { q: "A registered trademark uses which symbol?", options: ["©", "®", "™", "$"], answer: 1 },
+  { q: "Which is open-source?", options: ["Adobe Photoshop", "Microsoft Windows", "Linux", "iTunes"], answer: 2 },
+  { q: "Open-source software means…", options: ["Free of bugs", "Source code can be viewed & modified", "Owned by Microsoft", "Always paid"], answer: 1 },
+  // Threats
+  { q: "Which malware spreads without a host program?", options: ["Virus", "Worm", "Trojan", "Keylogger"], answer: 1 },
+  { q: "Ransomware…", options: ["Spies on keystrokes", "Encrypts files & demands payment", "Slows networks", "Replaces icons"], answer: 1 },
+  { q: "A zero-day vulnerability is…", options: ["Patched immediately", "Newly found, no patch yet", "Caused by users", "Always harmless"], answer: 1 },
+  { q: "Botnets are typically built from…", options: ["Servers only", "Unsecured IoT devices", "Smartphones only", "Printers"], answer: 1 },
+  { q: "Ethical hackers are called…", options: ["Black-hat", "Grey-hat", "White-hat", "Red-hat"], answer: 2 },
+  // Social engineering
+  { q: "Bulk fake emails leading to fake login pages is called…", options: ["Pretexting", "Phishing", "Baiting", "Shoulder-surfing"], answer: 1 },
+  { q: "A USB stick left in a car park is an example of…", options: ["Phishing", "Baiting", "Quid pro quo", "Pretexting"], answer: 1 },
+  { q: "Which is NOT a phishing red flag?", options: ["Generic greeting", "Spelling mistakes", "Use of your real name", "Urgency to act"], answer: 2 },
+  { q: "Pretexting works by…", options: ["Watching the screen", "Pretending to be a trusted org & creating urgency", "Sending malware in USBs", "Using cookies"], answer: 1 },
+  // Protection
+  { q: "A firewall mainly…", options: ["Encrypts data", "Backs up files", "Filters network traffic", "Removes viruses"], answer: 2 },
+  { q: "Asymmetric encryption uses…", options: ["No keys", "One shared key", "Two keys (public + private)", "Passwords only"], answer: 2 },
+  { q: "Incremental backup copies…", options: ["Everything every time", "Only changed/new files", "Only system files", "Nothing"], answer: 1 },
+  { q: "RAID protects against…", options: ["Cyberattacks", "Single disk failure", "Phishing", "Power cuts only"], answer: 1 },
+  { q: "An AUP is mainly intended to…", options: ["Sell software", "Set rules for acceptable user behaviour", "Replace antivirus", "Speed up Wi-Fi"], answer: 1 },
+  { q: "'Defence in depth' means…", options: ["One strong defence", "Layered defences", "Hiring more staff", "Using only firewalls"], answer: 1 },
 ];
 
 function endMessage(score: number, total: number) {

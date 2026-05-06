@@ -4,6 +4,8 @@ import { Quiz } from "@/components/Quiz";
 import { Flashcards } from "@/components/Flashcards";
 import { TabsPanel, RevealGrid, Accordion } from "@/components/Interactive";
 import { ActivityLauncher } from "@/components/ActivityLauncher";
+import { TopicHero } from "@/components/TopicHero";
+import heroImg from "@/assets/hero-personal-data.jpg";
 
 export const Route = createFileRoute("/personal-data")({
   component: Page,
@@ -75,11 +77,13 @@ function Page() {
     <div className="min-h-screen">
       <SiteHeader />
       <main className="max-w-5xl mx-auto px-6 py-12 space-y-12">
-        <header>
-          <span className="text-sm text-accent font-semibold tracking-wide uppercase">Section 2</span>
-          <h1 className="font-display text-5xl font-bold mt-2 mb-3">Personal Data</h1>
-          <p className="text-muted-foreground text-lg">Digital footprints, who owns the data, and the benefit-vs-risk trade-off.</p>
-        </header>
+        <TopicHero
+          image={heroImg}
+          eyebrow="Section 2"
+          title="Personal Data"
+          description="Digital footprints, who owns the data, and the benefit-vs-risk trade-off."
+          accentClass="from-fuchsia-600/60 to-cyan-500/30"
+        />
 
         <section>
           <h2 className="font-display text-2xl font-bold mb-3">Is it personal data?</h2>

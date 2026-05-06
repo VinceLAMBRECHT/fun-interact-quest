@@ -4,6 +4,8 @@ import { Quiz } from "@/components/Quiz";
 import { Flashcards } from "@/components/Flashcards";
 import { TabsPanel, RevealGrid, DoDont, StatGrid } from "@/components/Interactive";
 import { ActivityLauncher } from "@/components/ActivityLauncher";
+import { TopicHero } from "@/components/TopicHero";
+import heroImg from "@/assets/hero-environmental.jpg";
 
 export const Route = createFileRoute("/environmental")({
   component: Page,
@@ -76,11 +78,14 @@ function Page() {
     <div className="min-h-screen">
       <SiteHeader />
       <main className="max-w-5xl mx-auto px-6 py-12 space-y-12">
-        <header>
-          <span className="text-sm text-accent font-semibold tracking-wide uppercase">Section 1</span>
-          <h1 className="font-display text-5xl font-bold mt-2 mb-3">Environmental Issues</h1>
-          <p className="text-muted-foreground text-lg">The environmental impact of making, using and throwing away digital devices.</p>
-        </header>
+        <TopicHero
+          image={heroImg}
+          eyebrow="Section 1"
+          title="Environmental Issues"
+          description="The environmental impact of making, using and throwing away digital devices."
+          accentClass="from-emerald-600/60 to-amber-500/30"
+        />
+
 
         <StatGrid stats={[
           { value: "50M", label: "Tonnes e-waste / yr" },

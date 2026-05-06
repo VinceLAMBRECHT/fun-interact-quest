@@ -6,6 +6,8 @@ import { TabsPanel, RevealGrid, DoDont, StatGrid } from "@/components/Interactiv
 import { ActivityLauncher } from "@/components/ActivityLauncher";
 import { TopicHero } from "@/components/TopicHero";
 import heroImg from "@/assets/hero-environmental.jpg";
+import seedlingImg from "@/assets/env-seedling.jpg";
+import ewasteImg from "@/assets/env-ewaste.jpg";
 
 export const Route = createFileRoute("/environmental")({
   component: Page,
@@ -86,6 +88,11 @@ function Page() {
           accentClass="from-emerald-600/60 to-amber-500/30"
         />
 
+
+        <div className="grid sm:grid-cols-2 gap-4">
+          <img src={seedlingImg} alt="Hands holding a seedling growing from soil with circuit pattern" loading="lazy" width={1200} height={800} className="rounded-2xl shadow-card object-cover w-full h-56" />
+          <img src={ewasteImg} alt="E-waste reclaimed by moss and plants" loading="lazy" width={1200} height={800} className="rounded-2xl shadow-card object-cover w-full h-56" />
+        </div>
 
         <StatGrid stats={[
           { value: "50M", label: "Tonnes e-waste / yr" },

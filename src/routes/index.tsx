@@ -5,6 +5,11 @@ import envImg from "@/assets/environmental.jpg";
 import dataImg from "@/assets/personal-data.jpg";
 import lawImg from "@/assets/legislation.jpg";
 import gamesImg from "@/assets/games.jpg";
+import aiImg from "@/assets/hero-ai.jpg";
+import ipImg from "@/assets/hero-ip.jpg";
+import threatsImg from "@/assets/hero-threats.jpg";
+import socialImg from "@/assets/hero-social.jpg";
+import defenceImg from "@/assets/hero-defence.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -40,6 +45,46 @@ const topics = [
     desc: "DPA 2018, Computer Misuse Act, Cookies & EU Regulations.",
     color: "from-green-600/30 to-emerald-400/10",
     img: lawImg,
+  },
+  {
+    to: "/ai",
+    tag: "Section 4",
+    title: "Artificial Intelligence",
+    desc: "Machine learning, narrow AI, algorithmic bias & accountability.",
+    color: "from-emerald-500/30 to-teal-400/10",
+    img: aiImg,
+  },
+  {
+    to: "/intellectual-property",
+    tag: "Section 5",
+    title: "Intellectual Property",
+    desc: "Copyright, patents, trademarks & open-source vs proprietary.",
+    color: "from-teal-500/30 to-emerald-400/10",
+    img: ipImg,
+  },
+  {
+    to: "/threats",
+    tag: "Section 6",
+    title: "Threats to Digital Systems",
+    desc: "Malware, vulnerabilities and types of hacker.",
+    color: "from-emerald-600/30 to-lime-400/10",
+    img: threatsImg,
+  },
+  {
+    to: "/social-engineering",
+    tag: "Section 7",
+    title: "Social Engineering",
+    desc: "Phishing, baiting, pretexting & shoulder-surfing.",
+    color: "from-lime-500/30 to-emerald-400/10",
+    img: socialImg,
+  },
+  {
+    to: "/protecting-systems",
+    tag: "Section 8",
+    title: "Protecting Digital Systems",
+    desc: "Firewalls, encryption, backups & acceptable use policies.",
+    color: "from-emerald-700/30 to-teal-400/10",
+    img: defenceImg,
   },
   {
     to: "/games",

@@ -9,12 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ThreatsRouteImport } from './routes/threats'
+import { Route as SocialEngineeringRouteImport } from './routes/social-engineering'
+import { Route as ProtectingSystemsRouteImport } from './routes/protecting-systems'
 import { Route as PersonalDataRouteImport } from './routes/personal-data'
 import { Route as LegislationRouteImport } from './routes/legislation'
+import { Route as IntellectualPropertyRouteImport } from './routes/intellectual-property'
 import { Route as GamesRouteImport } from './routes/games'
 import { Route as EnvironmentalRouteImport } from './routes/environmental'
+import { Route as AiRouteImport } from './routes/ai'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ThreatsRoute = ThreatsRouteImport.update({
+  id: '/threats',
+  path: '/threats',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SocialEngineeringRoute = SocialEngineeringRouteImport.update({
+  id: '/social-engineering',
+  path: '/social-engineering',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProtectingSystemsRoute = ProtectingSystemsRouteImport.update({
+  id: '/protecting-systems',
+  path: '/protecting-systems',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PersonalDataRoute = PersonalDataRouteImport.update({
   id: '/personal-data',
   path: '/personal-data',
@@ -23,6 +43,11 @@ const PersonalDataRoute = PersonalDataRouteImport.update({
 const LegislationRoute = LegislationRouteImport.update({
   id: '/legislation',
   path: '/legislation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntellectualPropertyRoute = IntellectualPropertyRouteImport.update({
+  id: '/intellectual-property',
+  path: '/intellectual-property',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GamesRoute = GamesRouteImport.update({
@@ -35,6 +60,11 @@ const EnvironmentalRoute = EnvironmentalRouteImport.update({
   path: '/environmental',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AiRoute = AiRouteImport.update({
+  id: '/ai',
+  path: '/ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -43,55 +73,116 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ai': typeof AiRoute
   '/environmental': typeof EnvironmentalRoute
   '/games': typeof GamesRoute
+  '/intellectual-property': typeof IntellectualPropertyRoute
   '/legislation': typeof LegislationRoute
   '/personal-data': typeof PersonalDataRoute
+  '/protecting-systems': typeof ProtectingSystemsRoute
+  '/social-engineering': typeof SocialEngineeringRoute
+  '/threats': typeof ThreatsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ai': typeof AiRoute
   '/environmental': typeof EnvironmentalRoute
   '/games': typeof GamesRoute
+  '/intellectual-property': typeof IntellectualPropertyRoute
   '/legislation': typeof LegislationRoute
   '/personal-data': typeof PersonalDataRoute
+  '/protecting-systems': typeof ProtectingSystemsRoute
+  '/social-engineering': typeof SocialEngineeringRoute
+  '/threats': typeof ThreatsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ai': typeof AiRoute
   '/environmental': typeof EnvironmentalRoute
   '/games': typeof GamesRoute
+  '/intellectual-property': typeof IntellectualPropertyRoute
   '/legislation': typeof LegislationRoute
   '/personal-data': typeof PersonalDataRoute
+  '/protecting-systems': typeof ProtectingSystemsRoute
+  '/social-engineering': typeof SocialEngineeringRoute
+  '/threats': typeof ThreatsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/ai'
     | '/environmental'
     | '/games'
+    | '/intellectual-property'
     | '/legislation'
     | '/personal-data'
+    | '/protecting-systems'
+    | '/social-engineering'
+    | '/threats'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/environmental' | '/games' | '/legislation' | '/personal-data'
+  to:
+    | '/'
+    | '/ai'
+    | '/environmental'
+    | '/games'
+    | '/intellectual-property'
+    | '/legislation'
+    | '/personal-data'
+    | '/protecting-systems'
+    | '/social-engineering'
+    | '/threats'
   id:
     | '__root__'
     | '/'
+    | '/ai'
     | '/environmental'
     | '/games'
+    | '/intellectual-property'
     | '/legislation'
     | '/personal-data'
+    | '/protecting-systems'
+    | '/social-engineering'
+    | '/threats'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AiRoute: typeof AiRoute
   EnvironmentalRoute: typeof EnvironmentalRoute
   GamesRoute: typeof GamesRoute
+  IntellectualPropertyRoute: typeof IntellectualPropertyRoute
   LegislationRoute: typeof LegislationRoute
   PersonalDataRoute: typeof PersonalDataRoute
+  ProtectingSystemsRoute: typeof ProtectingSystemsRoute
+  SocialEngineeringRoute: typeof SocialEngineeringRoute
+  ThreatsRoute: typeof ThreatsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/threats': {
+      id: '/threats'
+      path: '/threats'
+      fullPath: '/threats'
+      preLoaderRoute: typeof ThreatsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/social-engineering': {
+      id: '/social-engineering'
+      path: '/social-engineering'
+      fullPath: '/social-engineering'
+      preLoaderRoute: typeof SocialEngineeringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/protecting-systems': {
+      id: '/protecting-systems'
+      path: '/protecting-systems'
+      fullPath: '/protecting-systems'
+      preLoaderRoute: typeof ProtectingSystemsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/personal-data': {
       id: '/personal-data'
       path: '/personal-data'
@@ -104,6 +195,13 @@ declare module '@tanstack/react-router' {
       path: '/legislation'
       fullPath: '/legislation'
       preLoaderRoute: typeof LegislationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/intellectual-property': {
+      id: '/intellectual-property'
+      path: '/intellectual-property'
+      fullPath: '/intellectual-property'
+      preLoaderRoute: typeof IntellectualPropertyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/games': {
@@ -120,6 +218,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnvironmentalRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ai': {
+      id: '/ai'
+      path: '/ai'
+      fullPath: '/ai'
+      preLoaderRoute: typeof AiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -132,10 +237,15 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AiRoute: AiRoute,
   EnvironmentalRoute: EnvironmentalRoute,
   GamesRoute: GamesRoute,
+  IntellectualPropertyRoute: IntellectualPropertyRoute,
   LegislationRoute: LegislationRoute,
   PersonalDataRoute: PersonalDataRoute,
+  ProtectingSystemsRoute: ProtectingSystemsRoute,
+  SocialEngineeringRoute: SocialEngineeringRoute,
+  ThreatsRoute: ThreatsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

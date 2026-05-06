@@ -5,6 +5,11 @@ const links = [
   { to: "/environmental", label: "Environmental" },
   { to: "/personal-data", label: "Personal Data" },
   { to: "/legislation", label: "Legislation" },
+  { to: "/ai", label: "AI" },
+  { to: "/intellectual-property", label: "IP" },
+  { to: "/threats", label: "Threats" },
+  { to: "/social-engineering", label: "Social Eng." },
+  { to: "/protecting-systems", label: "Defence" },
   { to: "/games", label: "Test Your Learning" },
 ] as const;
 

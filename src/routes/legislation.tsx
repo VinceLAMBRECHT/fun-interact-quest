@@ -4,6 +4,8 @@ import { Quiz } from "@/components/Quiz";
 import { Flashcards } from "@/components/Flashcards";
 import { TabsPanel, RevealGrid, Accordion } from "@/components/Interactive";
 import { ActivityLauncher } from "@/components/ActivityLauncher";
+import { TopicHero } from "@/components/TopicHero";
+import heroImg from "@/assets/hero-legislation.jpg";
 
 export const Route = createFileRoute("/legislation")({
   component: Page,

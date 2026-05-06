@@ -74,11 +74,13 @@ function Page() {
     <div className="min-h-screen">
       <SiteHeader />
       <main className="max-w-5xl mx-auto px-6 py-12 space-y-12">
-        <header>
-          <span className="text-sm text-accent font-semibold tracking-wide uppercase">Section 3</span>
-          <h1 className="font-display text-5xl font-bold mt-2 mb-3">Legislation</h1>
-          <p className="text-muted-foreground text-lg">DPA 2018, the Computer Misuse Act 1990 and the rules on cookies.</p>
-        </header>
+        <TopicHero
+          image={heroImg}
+          eyebrow="Section 3"
+          title="Legislation"
+          description="DPA 2018, the Computer Misuse Act 1990 and the rules on cookies."
+          accentClass="from-violet-700/60 to-amber-500/30"
+        />
 
         <section>
           <h2 className="font-display text-2xl font-bold mb-3">Data Protection Act 2018</h2>

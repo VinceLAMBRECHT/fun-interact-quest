@@ -84,8 +84,13 @@ function Page() {
           eyebrow="Section 2"
           title="Personal Data"
           description="Digital footprints, who owns the data, and the benefit-vs-risk trade-off."
-          accentClass="from-fuchsia-600/60 to-cyan-500/30"
+          accentClass="from-emerald-600/60 to-teal-500/30"
         />
+
+        <div className="grid sm:grid-cols-2 gap-4">
+          <img src={fingerprintImg} alt="Glowing green fingerprint made of data" loading="lazy" width={1200} height={800} className="rounded-2xl shadow-card object-cover w-full h-56" />
+          <img src={footprintImg} alt="Silhouette with social icons and green data trails" loading="lazy" width={1200} height={800} className="rounded-2xl shadow-card object-cover w-full h-56" />
+        </div>
 
         <section>
           <h2 className="font-display text-2xl font-bold mb-3">Is it personal data?</h2>

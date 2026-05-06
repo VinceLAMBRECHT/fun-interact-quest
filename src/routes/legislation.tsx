@@ -6,6 +6,8 @@ import { TabsPanel, RevealGrid, Accordion } from "@/components/Interactive";
 import { ActivityLauncher } from "@/components/ActivityLauncher";
 import { TopicHero } from "@/components/TopicHero";
 import heroImg from "@/assets/hero-legislation.jpg";
+import gavelImg from "@/assets/law-gavel.jpg";
+import cookiesImg from "@/assets/law-cookies.jpg";
 
 export const Route = createFileRoute("/legislation")({
   component: Page,

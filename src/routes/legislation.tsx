@@ -5,6 +5,7 @@ import { Flashcards } from "@/components/Flashcards";
 import { TabsPanel, RevealGrid, Accordion } from "@/components/Interactive";
 import { ActivityLauncher } from "@/components/ActivityLauncher";
 import { TopicHero } from "@/components/TopicHero";
+import { VideoSummary } from "@/components/VideoSummary";
 import heroImg from "@/assets/hero-legislation.jpg";
 import gavelImg from "@/assets/law-gavel.jpg";
 import cookiesImg from "@/assets/law-cookies.jpg";
@@ -104,6 +105,9 @@ function Page() {
           <img src={cookiesImg} alt="Cookies on a laptop with green padlocks" loading="lazy" width={1200} height={800} className="rounded-2xl shadow-card object-cover w-full h-56 mb-4" />
           <RevealGrid items={cookieFacts} />
         </section>
+
+
+        <VideoSummary youtubeId="6GrNyc1WAgk" caption="Is the UK's Computer Misuse Act still fit for purpose?" />
 
         <ActivityLauncher activities={[
           { id: "flash", label: "Flashcards", desc: "Flip key terms and definitions.", render: () => <Flashcards cards={cards} /> },

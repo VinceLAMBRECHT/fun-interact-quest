@@ -5,6 +5,7 @@ import { Flashcards } from "@/components/Flashcards";
 import { TabsPanel, RevealGrid, Accordion } from "@/components/Interactive";
 import { ActivityLauncher } from "@/components/ActivityLauncher";
 import { TopicHero } from "@/components/TopicHero";
+import { VideoSummary } from "@/components/VideoSummary";
 import heroImg from "@/assets/hero-personal-data.jpg";
 import fingerprintImg from "@/assets/data-fingerprint.jpg";
 import footprintImg from "@/assets/data-footprint.jpg";
@@ -111,6 +112,9 @@ function Page() {
           <h2 className="font-display text-2xl font-bold mb-3">Who owns the data?</h2>
           <Accordion items={ownership} />
         </section>
+
+
+        <VideoSummary youtubeId="Ro_LlRg8rGg" caption="Four reasons to care about your digital footprint." />
 
         <ActivityLauncher activities={[
           { id: "flash", label: "Flashcards", desc: "Flip key terms and definitions.", render: () => <Flashcards cards={cards} /> },

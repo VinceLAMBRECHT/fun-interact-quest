@@ -5,6 +5,7 @@ import { Flashcards } from "@/components/Flashcards";
 import { TabsPanel, RevealGrid, DoDont } from "@/components/Interactive";
 import { ActivityLauncher } from "@/components/ActivityLauncher";
 import { TopicHero } from "@/components/TopicHero";
+import { VideoSummary } from "@/components/VideoSummary";
 import heroImg from "@/assets/hero-defence.jpg";
 
 export const Route = createFileRoute("/protecting-systems")({
@@ -95,6 +96,9 @@ function Page() {
           <h2 className="font-display text-2xl font-bold mb-3">Acceptable Use Policy (AUP)</h2>
           <DoDont doItems={aupExamples.doItems} dontItems={aupExamples.dontItems} />
         </section>
+
+
+        <VideoSummary youtubeId="kDEX1HXybrU" caption="How a firewall protects a network." />
 
         <ActivityLauncher activities={[
           { id: "flash", label: "Flashcards", desc: "Flip key terms and definitions.", render: () => <Flashcards cards={cards} /> },

@@ -5,6 +5,7 @@ import { Flashcards } from "@/components/Flashcards";
 import { TabsPanel, RevealGrid, Accordion } from "@/components/Interactive";
 import { ActivityLauncher } from "@/components/ActivityLauncher";
 import { TopicHero } from "@/components/TopicHero";
+import { VideoSummary } from "@/components/VideoSummary";
 import heroImg from "@/assets/hero-threats.jpg";
 
 export const Route = createFileRoute("/threats")({
@@ -94,6 +95,9 @@ function Page() {
             { label: "Disruption", icon: "💥", content: <RevealGrid items={disruption} /> },
           ]} />
         </section>
+
+
+        <VideoSummary youtubeId="n8mbzU0X2nQ" caption="Difference between viruses, worms and trojans." />
 
         <ActivityLauncher activities={[
           { id: "flash", label: "Flashcards", desc: "Flip key terms and definitions.", render: () => <Flashcards cards={cards} /> },

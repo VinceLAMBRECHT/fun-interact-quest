@@ -5,6 +5,7 @@ import { Flashcards } from "@/components/Flashcards";
 import { TabsPanel, RevealGrid, Accordion } from "@/components/Interactive";
 import { ActivityLauncher } from "@/components/ActivityLauncher";
 import { TopicHero } from "@/components/TopicHero";
+import { VideoSummary } from "@/components/VideoSummary";
 import heroImg from "@/assets/hero-ai.jpg";
 
 export const Route = createFileRoute("/ai")({
@@ -92,6 +93,9 @@ function Page() {
           <h2 className="font-display text-2xl font-bold mb-3">Who's responsible when AI goes wrong?</h2>
           <RevealGrid items={responsibility} />
         </section>
+
+
+        <VideoSummary youtubeId="PeMlggyqz0Y" caption="Machine learning explained in 100 seconds." />
 
         <ActivityLauncher activities={[
           { id: "flash", label: "Flashcards", desc: "Flip key terms and definitions.", render: () => <Flashcards cards={cards} /> },

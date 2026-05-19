@@ -5,6 +5,7 @@ import { Flashcards } from "@/components/Flashcards";
 import { TabsPanel, RevealGrid, Accordion } from "@/components/Interactive";
 import { ActivityLauncher } from "@/components/ActivityLauncher";
 import { TopicHero } from "@/components/TopicHero";
+import { VideoSummary } from "@/components/VideoSummary";
 import heroImg from "@/assets/hero-ip.jpg";
 
 export const Route = createFileRoute("/intellectual-property")({
@@ -108,6 +109,9 @@ function Page() {
           <h2 className="font-display text-2xl font-bold mb-3">Software licence terms</h2>
           <Accordion items={licenceTerms} />
         </section>
+
+
+        <VideoSummary youtubeId="3gWaAJR5L18" caption="Crash Course on trademarks, copyright and patents." />
 
         <ActivityLauncher activities={[
           { id: "flash", label: "Flashcards", desc: "Flip key terms and definitions.", render: () => <Flashcards cards={cards} /> },

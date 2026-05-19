@@ -73,7 +73,7 @@ function Page() {
 
         <section>
           <h2 className="font-display text-2xl font-bold mb-3">Spot a phishing email</h2>
-          <RevealGrid items={phishingSigns} />
+          <RevealGrid items={phishingSigns} clickToReveal />
         </section>
 
 

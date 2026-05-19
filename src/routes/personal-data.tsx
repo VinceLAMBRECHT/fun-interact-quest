@@ -96,7 +96,7 @@ function Page() {
         <section>
           <h2 className="font-display text-2xl font-bold mb-3">Is it personal data?</h2>
           <p className="text-sm text-muted-foreground mb-4">Tap to confirm what counts as personal data.</p>
-          <RevealGrid items={examples} />
+          <RevealGrid items={examples} clickToReveal />
         </section>
 
         <section>

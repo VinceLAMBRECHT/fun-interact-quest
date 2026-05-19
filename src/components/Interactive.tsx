@@ -12,32 +12,57 @@ const ACCENTS = [
   "from-cyan-500/15 to-teal-500/5 border-cyan-500/40 hover:border-cyan-400",
 ];
 
-export function RevealGrid({ items }: { items: Reveal[] }) {
+export function RevealGrid({ items, clickToReveal = false }: { items: Reveal[]; clickToReveal?: boolean }) {
   const [hover, setHover] = useState<number | null>(null);
+  const [opened, setOpened] = useState<Set<number>>(new Set());
+  const toggle = (i: number) =>
+    setOpened((prev) => {
+      const next = new Set(prev);
+      if (next.has(i)) next.delete(i);
+      else next.add(i);
+      return next;
+    });
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
       {items.map((it, i) => {
         const accent = ACCENTS[i % ACCENTS.length];
         const isHover = hover === i;
+        const isOpen = opened.has(i);
+        const interactive = clickToReveal;
         return (
           <div
             key={i}
             onMouseEnter={() => setHover(i)}
             onMouseLeave={() => setHover(null)}
-            className={`group relative overflow-hidden p-4 rounded-2xl border-2 bg-gradient-to-br shadow-card transition-all duration-300 cursor-default ${accent} ${
+            onClick={() => interactive && toggle(i)}
+            role={interactive ? "button" : undefined}
+            tabIndex={interactive ? 0 : undefined}
+            onKeyDown={(e) => {
+              if (interactive && (e.key === "Enter" || e.key === " ")) {
+                e.preventDefault();
+                toggle(i);
+              }
+            }}
+            className={`group relative overflow-hidden p-4 rounded-2xl border-2 bg-gradient-to-br shadow-card transition-all duration-300 ${interactive ? "cursor-pointer" : "cursor-default"} ${accent} ${
               isHover ? "-translate-y-1 shadow-lg scale-[1.02]" : ""
             }`}
           >
             <div className="absolute -top-8 -right-8 w-24 h-24 rounded-full bg-white/5 blur-2xl pointer-events-none" />
             <div className="flex items-center gap-2 mb-2">
               {it.icon && (
-                <span className={`text-2xl inline-block transition-transform duration-300 ${isHover ? "scale-125 rotate-6" : ""}`}>
+                <span className={`text-2xl inline-block transition-transform duration-300 ${isHover || isOpen ? "scale-125 rotate-6" : ""}`}>
                   {it.icon}
                 </span>
               )}
               <span className="font-display font-bold text-base leading-tight">{it.label}</span>
             </div>
-            <p className="text-sm text-foreground/85 leading-relaxed">{it.detail}</p>
+            {interactive && !isOpen ? (
+              <p className="text-sm font-semibold text-primary/90 inline-flex items-center gap-1 animate-fade-in">
+                Tap to reveal <span aria-hidden>→</span>
+              </p>
+            ) : (
+              <p className="text-sm text-foreground/85 leading-relaxed animate-fade-in">{it.detail}</p>
+            )}
           </div>
         );
       })}

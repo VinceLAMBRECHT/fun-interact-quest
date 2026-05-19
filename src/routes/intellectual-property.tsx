@@ -111,7 +111,7 @@ function Page() {
         </section>
 
 
-        <VideoSummary youtubeId="3gWaAJR5L18" caption="Crash Course on trademarks, copyright and patents." />
+        <VideoSummary youtubeId="3gWaAJR5L18" caption="Crash Course: how trademarks protect brands from consumer confusion." />
 
         <ActivityLauncher activities={[
           { id: "flash", label: "Flashcards", desc: "Flip key terms and definitions.", render: () => <Flashcards cards={cards} /> },

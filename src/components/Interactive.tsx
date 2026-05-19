@@ -3,35 +3,42 @@ import { useState, type ReactNode } from "react";
 /* ---------- Reveal Cards: click to flip a fact card ---------- */
 export type Reveal = { label: string; detail: string; icon?: string };
 
+const ACCENTS = [
+  "from-emerald-500/15 to-teal-500/5 border-emerald-500/40 hover:border-emerald-400",
+  "from-sky-500/15 to-blue-500/5 border-sky-500/40 hover:border-sky-400",
+  "from-violet-500/15 to-fuchsia-500/5 border-violet-500/40 hover:border-violet-400",
+  "from-amber-500/15 to-orange-500/5 border-amber-500/40 hover:border-amber-400",
+  "from-rose-500/15 to-pink-500/5 border-rose-500/40 hover:border-rose-400",
+  "from-cyan-500/15 to-teal-500/5 border-cyan-500/40 hover:border-cyan-400",
+];
+
 export function RevealGrid({ items }: { items: Reveal[] }) {
-  const [open, setOpen] = useState<Set<number>>(new Set());
-  const toggle = (i: number) => {
-    const n = new Set(open);
-    n.has(i) ? n.delete(i) : n.add(i);
-    setOpen(n);
-  };
+  const [hover, setHover] = useState<number | null>(null);
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
       {items.map((it, i) => {
-        const isOpen = open.has(i);
+        const accent = ACCENTS[i % ACCENTS.length];
+        const isHover = hover === i;
         return (
-          <button
+          <div
             key={i}
-            onClick={() => toggle(i)}
-            className={`text-left p-4 rounded-2xl border-2 transition-all min-h-[120px] ${
-              isOpen
-                ? "border-primary bg-primary/5 shadow-card"
-                : "border-border bg-secondary/40 hover:border-primary/50 hover:bg-secondary"
+            onMouseEnter={() => setHover(i)}
+            onMouseLeave={() => setHover(null)}
+            className={`group relative overflow-hidden p-4 rounded-2xl border-2 bg-gradient-to-br shadow-card transition-all duration-300 cursor-default ${accent} ${
+              isHover ? "-translate-y-1 shadow-lg scale-[1.02]" : ""
             }`}
           >
-            <div className="flex items-center gap-2 mb-1">
-              {it.icon && <span className="text-xl">{it.icon}</span>}
-              <span className="font-semibold">{it.label}</span>
+            <div className="absolute -top-8 -right-8 w-24 h-24 rounded-full bg-white/5 blur-2xl pointer-events-none" />
+            <div className="flex items-center gap-2 mb-2">
+              {it.icon && (
+                <span className={`text-2xl inline-block transition-transform duration-300 ${isHover ? "scale-125 rotate-6" : ""}`}>
+                  {it.icon}
+                </span>
+              )}
+              <span className="font-display font-bold text-base leading-tight">{it.label}</span>
             </div>
-            <p className={`text-sm transition-all ${isOpen ? "text-foreground/90" : "text-muted-foreground italic"}`}>
-              {isOpen ? it.detail : "Tap to reveal"}
-            </p>
-          </button>
+            <p className="text-sm text-foreground/85 leading-relaxed">{it.detail}</p>
+          </div>
         );
       })}
     </div>

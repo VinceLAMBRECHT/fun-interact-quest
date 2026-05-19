@@ -91,7 +91,7 @@ function Page() {
 
         <section>
           <h2 className="font-display text-2xl font-bold mb-3">Who's responsible when AI goes wrong?</h2>
-          <RevealGrid items={responsibility} />
+          <RevealGrid items={responsibility} clickToReveal />
         </section>
 
 

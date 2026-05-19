@@ -80,7 +80,7 @@ function Page() {
 
         <section>
           <h2 className="font-display text-2xl font-bold mb-3">Types of malware</h2>
-          <RevealGrid items={malware} />
+          <RevealGrid items={malware} clickToReveal />
         </section>
 
         <section>

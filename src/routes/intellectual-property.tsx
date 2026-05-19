@@ -88,7 +88,7 @@ function Page() {
 
         <section>
           <h2 className="font-display text-2xl font-bold mb-3">How IP is protected</h2>
-          <RevealGrid items={protections} />
+          <RevealGrid items={protections} clickToReveal />
         </section>
 
         <section>

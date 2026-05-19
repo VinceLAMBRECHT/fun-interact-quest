@@ -5,6 +5,7 @@ import { Flashcards } from "@/components/Flashcards";
 import { RevealGrid, Accordion } from "@/components/Interactive";
 import { ActivityLauncher } from "@/components/ActivityLauncher";
 import { TopicHero } from "@/components/TopicHero";
+import { VideoSummary } from "@/components/VideoSummary";
 import heroImg from "@/assets/hero-social.jpg";
 
 export const Route = createFileRoute("/social-engineering")({
@@ -74,6 +75,9 @@ function Page() {
           <h2 className="font-display text-2xl font-bold mb-3">Spot a phishing email</h2>
           <RevealGrid items={phishingSigns} />
         </section>
+
+
+        <VideoSummary youtubeId="XBkzBrXlle0" caption="Phishing attacks explained in 6 minutes." />
 
         <ActivityLauncher activities={[
           { id: "flash", label: "Flashcards", desc: "Flip key terms and definitions.", render: () => <Flashcards cards={cards} /> },

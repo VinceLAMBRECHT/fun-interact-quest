@@ -1,40 +1,34 @@
-name: Deploy to GitHub Pages
-
+name: Deploy
 on:
   push:
-    branches: 'main'
-
+    branches:
+      - main
 permissions:
   contents: read
   pages: write
   id-token: write
-
 concurrency:
-  group: 'pages'
+  group: pages
   cancel-in-progress: true
-
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-      - name: Install dependencies
-        run: npm install
-      - name: Build Website
-        run: npx vite build --base=/fun-interact-quest/
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+      - name: Install and Build
+        run: |
+          bun install
+          bun run build
+          mkdir -p public-deploy
+          if [ -d "dist" ]; then cp -r dist/* public-deploy/; fi
+          if [ -d "build/client" ]; then cp -r build/client/* public-deploy/; fi
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: public-deploy
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

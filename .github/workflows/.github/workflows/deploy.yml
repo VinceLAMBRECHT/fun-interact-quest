@@ -28,6 +28,10 @@ jobs:
       - name: Build project
         run: npm run build
         
+      - name: Route Fallback Setup
+        run: |
+          cp build/client/index.html build/client/404.html
+        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

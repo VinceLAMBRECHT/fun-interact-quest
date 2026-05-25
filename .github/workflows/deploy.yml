@@ -28,10 +28,16 @@ jobs:
       - name: Build project
         run: npm run build
         
+      - name: Gather Files
+        run: |
+          mkdir -p public-deploy
+          cp -r dist/* public-deploy/ 2>/dev/null || true
+          cp -r build/client/* public-deploy/ 2>/dev/null || true
+          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: public-deploy
           
       - name: Deploy to GitHub Pages
         id: deployment
